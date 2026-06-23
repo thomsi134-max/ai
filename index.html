@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min side</title>
+  <style>
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: grid; place-items: center; background: #0f172a; color: white; text-align: center; }
+    .game { background: #1e293b; padding: 28px; border-radius: 20px; }
+    #target {
+      width: 80px; height: 80px; border-radius: 50%; background: #2563eb;
+      margin: 20px auto; cursor: pointer; transition: transform 0.1s;
+    }
+    #target:active { transform: scale(0.9); }
+  </style>
+</head>
+<body>
+  <div class="game">
+    <h1>Min side</h1>
+    <p>Poeng: <span id="score">0</span></p>
+    <div id="target"></div>
+    <p>Klikk på sirkelen så fort du kan!</p>
+  </div>
+<script>
+    let score = 0;
+    const target = document.getElementById("target");
+    const scoreEl = document.getElementById("score");
+    function move() {
+      target.style.marginLeft = Math.random() * 120 - 60 + "px";
+      target.style.marginTop = Math.random() * 80 - 40 + "px";
+    }
+    target.onclick = () => { score++; scoreEl.textContent = score; move(); };
+    move();
+  </script>
+</body>
+</html>
