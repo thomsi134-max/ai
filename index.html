@@ -5,32 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Min side</title>
   <style>
-    body { font-family: system-ui, sans-serif; min-height: 100vh; display: grid; place-items: center; background: #0f172a; color: white; text-align: center; }
-    .game { background: #1e293b; padding: 28px; border-radius: 20px; }
-    #target {
-      width: 80px; height: 80px; border-radius: 50%; background: #2563eb;
-      margin: 20px auto; cursor: pointer; transition: transform 0.1s;
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #2563eb, #111827);
+      color: white;
+      padding: 24px;
     }
-    #target:active { transform: scale(0.9); }
+    .box {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 480px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    h1 { margin-bottom: 12px; }
+    p { opacity: 0.9; line-height: 1.6; }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 12px;
+      background: white;
+      color: #2563eb;
+      font-weight: 700;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <div class="game">
+  <div class="box">
     <h1>Min side</h1>
-    <p>Poeng: <span id="score">0</span></p>
-    <div id="target"></div>
-    <p>Klikk på sirkelen så fort du kan!</p>
+    <p>Dette er en nettside Nora kodet for deg. Rediger teksten og lagre filen som index.html.</p>
+    <button onclick="alert('Hei fra Min side!')">Trykk meg</button>
   </div>
-<script>
-    let score = 0;
-    const target = document.getElementById("target");
-    const scoreEl = document.getElementById("score");
-    function move() {
-      target.style.marginLeft = Math.random() * 120 - 60 + "px";
-      target.style.marginTop = Math.random() * 80 - 40 + "px";
-    }
-    target.onclick = () => { score++; scoreEl.textContent = score; move(); };
-    move();
-  </script>
+
 </body>
 </html>
